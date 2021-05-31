@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="dobt" class="java.util.Date">
+       <constructor-arg name="year" value="98"/>
+       <constructor-arg name="month" value="1"/>
+       <constructor-arg name="date" value="11"/>
+       </bean>
+       
+       <bean id="sysdt" class="java.util.Date"/>
+      
+       <bean id="codate" class="java.util.Date">
+       <constructor-arg name="year" value="122"/>
+       <constructor-arg name="month" value="5"/>
+       <constructor-arg name="date" value="15"/>
+       </bean>
+       
+          <!--          List Collection injuction          -->
+      
+       <bean id="stud" class="com.nt.beans.Student">
+          <property name="Marks" >
+               <list>
+                      <value>98</value>
+                      <value>94</value>
+                      <value>92</value>
+                      <value>96</value>
+               </list>
+         </property>
+         <property name="date">
+               <list>
+                    <ref bean="dobt"/>
+                    <ref bean="sysdt"/>
+                    <ref bean="codate"/>
+               
+               </list> 
+         </property>
+       </bean>
+          
+          <!--           Set Collection Injuction          -->
+          
+         <bean id="fac" class="com.nt.beans.FacultyInfo">
+               <property name="phoneNum">
+                  <set>
+                      <value>875726955</value>
+                      <value>6203443856</value>
+                      <value>875726955</value>
+                      <value>8210289705</value>
+                      <value>7808067909</value>
+                  </set>
+               </property>
+                <property name="date">
+                        <set>
+                             <ref bean="dobt"/>
+                             <ref bean="sysdt"/>
+                             <ref bean="codate"/> 
+                        </set>
+                </property>
+         </bean>
+         
+               <!--        Map Collection Injuction                -->
+               
+                   <bean id="store" class="com.nt.beans.FruitStore">
+                      <property name="fruitsinfo">
+                           <map>
+                                 <entry>
+                                        <key><value>Apple</value></key>
+                                             <value>100</value>
+                                 </entry>
+                                <entry>
+                                        <key><value>Banana</value></key>
+                                             <value>30</value>
+                                 </entry>
+                                 <entry>
+                                        <key><value>Orange</value></key>
+                                             <value>50</value>
+                                 </entry>
+                             </map>
+                        </property>     
+                        <property name="impDates">
+                              <map>
+                                   <entry>
+                                          <key><value>Dob</value></key>
+                                               <ref bean="dobt"/>
+                                   </entry>
+                                    <entry>
+                                          <key><value>sysdate</value></key>
+                                               <ref bean="sysdt"/>
+                                   </entry>
+                                    <entry>
+                                          <key><value>Cdate</value></key>
+                                               <ref bean="codate"/>
+                                   </entry>
+                              </map>
+                              
+                         </property>  
+                   
+                   </bean>
+          
+</beans> 

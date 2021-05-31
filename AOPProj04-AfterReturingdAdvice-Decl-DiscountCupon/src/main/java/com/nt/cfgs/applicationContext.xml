@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+ 
+  <!-- config Target calss -->
+    <bean id="store" class="com.nt.service.OnlineStore"/>
+  <!-- config Target calss -->
+   <bean id="dcAdvice" class="com.nt.advice.DiscountCuponAdvice"/>
+   
+   <aop:config>
+   
+          <!-- OGNL expresssion representing Pointcut -->
+        <!--  <aop:pointcut id="ptc" expression="execution (double com.nt.service.OnlineStore.shopping(..))" /> -->
+        
+        <aop:aspect ref="dcAdvice">
+            <aop:after-returning method="generateCupon" pointcut="execution (double com.nt.service.OnlineStore.shopping(..))" returning="billAmt"/>
+        </aop:aspect>
+       
+   </aop:config>
+</beans>

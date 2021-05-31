@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+     <!-- Dependent class config -->
+       <bean id="cngg" class="com.nt.car.CNGEngine" primary="true"/>
+       <bean id="pngg" class="com.nt.car.PetrolEngine"/>
+       <bean id="dngg" class="com.nt.car.DieselEngine"/>
+
+     <!-- target class injuction done by autowireing -->
+     <bean id="vehicle" class="com.nt.target.Vehicle" autowire="byType" />
+     
+     
+</beans> 

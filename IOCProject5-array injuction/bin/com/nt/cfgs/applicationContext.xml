@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="dobt" class="java.util.Date">
+       <constructor-arg name="year" value="98"/>
+       <constructor-arg name="month" value="1"/>
+       <constructor-arg name="date" value="11"/>
+       </bean>
+       
+       <bean id="sysdt" class="java.util.Date"/>
+      
+       <bean id="codate" class="java.util.Date">
+       <constructor-arg name="year" value="122"/>
+       <constructor-arg name="month" value="5"/>
+       <constructor-arg name="date" value="15"/>
+       </bean>
+
+       <bean id="clg" class="com.nt.beans.College">
+          <property name="favStudent" >
+               <array>
+                      <value>Ankuj</value>
+                      <value>Atul</value>
+                      <value>Ankit</value>
+                      <value>Ashu</value>
+               </array>
+         </property>
+         <property name="date">
+               <list>
+                    <ref bean="dobt"/>
+                    <ref bean="sysdt"/>
+                    <ref bean="codate"/>
+               
+               </list> 
+         </property>
+       
+       </bean>
+
+</beans> 
